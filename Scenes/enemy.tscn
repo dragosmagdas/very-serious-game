@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw0gfvjj2ie38"]
+
+[ext_resource type="Script" uid="uid://caukjuuott7gr" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://dscfvbk88il5r" path="res://Sprites/icon.svg" id="1_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
+size = Vector2(119, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
+size = Vector2(129, 127)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_1f0kj")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_hghv2")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+max_speed = 30000.0
+debug_enabled = true
+
+[node name="CalculateTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true

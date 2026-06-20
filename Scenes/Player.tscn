@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cel8bbvbbr1oe"]
+
+[ext_resource type="Script" uid="uid://c7ha4bt6g1op5" path="res://Scripts/player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://dscfvbk88il5r" path="res://Sprites/icon.svg" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://c2qcps7g0p2qr" path="res://Scripts/weapon.gd" id="3_kne1u"]
+[ext_resource type="Texture2D" uid="uid://beel0iu5alb8r" path="res://Sprites/WeaponPrototypeTexture.png" id="4_e80uo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkw7b"]
+size = Vector2(118, 118)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xkw7b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("3_kne1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+position = Vector2(100, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("4_e80uo")
+
+[node name="BulletPos" type="Node2D" parent="Weapon"]
+position = Vector2(109, -1)

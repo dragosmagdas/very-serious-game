@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://611ecqivecj8"]
+
+[ext_resource type="Script" uid="uid://yxfbooiq1ea0" path="res://Scripts/World1.gd" id="1_ce4ik"]
+[ext_resource type="PackedScene" uid="uid://cel8bbvbbr1oe" path="res://Scenes/Player.tscn" id="2_4oeco"]
+[ext_resource type="PackedScene" uid="uid://bw0gfvjj2ie38" path="res://Scenes/enemy.tscn" id="4_4oeco"]
+[ext_resource type="PackedScene" uid="uid://b5ox0i7d0ngl5" path="res://Scenes/clock.tscn" id="4_kn0k0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4oeco"]
+vertices = PackedVector2Array(-367.6328, -20, 1131.7422, -717.03906, 1103.2422, 441.85156, -397.8203, 92.6875, -397.8203, -132.6875, -480.3125, -215.17969, -1418.1719, -728.9531, -593, -245.36719, -705.6875, -215.17969, -1437.8203, 404.14063, -788.1797, -132.6875, -818.3672, -20, -788.1797, 92.6875, -705.6875, 175.17969, -480.3125, 175.17969, -593, 205.36719)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(1, 4, 5), PackedInt32Array(6, 1, 5, 7), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 6, 8, 10), PackedInt32Array(9, 10, 11), PackedInt32Array(9, 11, 12), PackedInt32Array(9, 12, 13), PackedInt32Array(14, 3, 2), PackedInt32Array(9, 13, 15), PackedInt32Array(2, 9, 15), PackedInt32Array(2, 15, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1428, -739, 1142, -727, 1113, 452, -1448, 414)])
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ce4ik")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-15, -18)
+navigation_polygon = SubResource("NavigationPolygon_4oeco")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(-593, -20)
+radius = 215.02
+affect_navigation_mesh = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_4oeco")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-552, -353)
+
+[node name="Clock" parent="." instance=ExtResource("4_kn0k0")]
+position = Vector2(-607, -41)
