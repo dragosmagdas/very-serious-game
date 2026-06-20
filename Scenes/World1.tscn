@@ -30,3 +30,30 @@ position = Vector2(-552, -353)
 
 [node name="Clock" parent="." instance=ExtResource("4_kn0k0")]
 position = Vector2(-607, -41)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-177, -408)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-378, -519)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(213, -618)
+
+[node name="Enemy5" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-28, -603)
+
+[node name="Enemy6" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(167, -468)
+
+[node name="Enemy7" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(457, -480)
+
+[node name="Enemy8" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-865, -489)
+
+[node name="Enemy9" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-647, -638)
+
+[node name="Enemy10" parent="." instance=ExtResource("4_4oeco")]
+position = Vector2(-1136, -55)

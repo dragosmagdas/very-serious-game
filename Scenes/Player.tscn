@@ -1,37 +1,106 @@
-[gd_scene load_steps=6 format=3 uid="uid://cel8bbvbbr1oe"]
+[gd_scene load_steps=11 format=4 uid="uid://cel8bbvbbr1oe"]
 
 [ext_resource type="Script" uid="uid://c7ha4bt6g1op5" path="res://Scripts/player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://dscfvbk88il5r" path="res://Sprites/icon.svg" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://c2qcps7g0p2qr" path="res://Scripts/weapon.gd" id="3_kne1u"]
-[ext_resource type="Texture2D" uid="uid://beel0iu5alb8r" path="res://Sprites/WeaponPrototypeTexture.png" id="4_e80uo"]
+[ext_resource type="Texture2D" uid="uid://jp2k021bok5v" path="res://Sprites/Book.png" id="4_dewec"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkw7b"]
-size = Vector2(118, 118)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gntrk"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAIAAAABoAgAAUklGRmACAABXRUJQVlA4TFMCAAAvf8AfEGegJADQhgRUQOLpQ3//zxbEaG0bv/30O0k1i5nNYQ+qoraRpOY9HZHSv2jD+4wUAUGR/6MFANj+9xtOT/tFFX+6mtM/tpbYGIkA3YEkadvbtoG7ytJHyAWc/DPpvS8rdAGNPhe6reQsXTk6gdsB0gtXafAibalTCZT4f2BJXUT0n4HbtnFoDNk9d88wfw/Td66Za6+vAJzLs9eJsxZwzQC9qOwBrXx7mQVgKt9em/TCNos/1oFWpffanAdg8+y1gLPSRi+3XnYPMgjQy6nXA+Cs1wZqAXppI6kYInJK5IzvVW1y7TXnTZS51wOvxrjuTVIggphiRXCf48OM2x0AMTM6tCfw7k+yYgbbKwHruk0Xq7FQ0+uwItb1BGkz7ERXLcqboUW0yRGIyRW7PrlMing/MYye2Gft5+Q2K6Jdv93nfMXo1HWWOctZuGOgQU8800zWcgjLVK2vr3zArcycuBF5bZTxl0aMAGEuDY98L71qmP+xkjgfhnPW2inC12X46Hecg09c01vGUJxyw1Bi/XTOIp2mqhXSjo6OaoaIXUj5oP8pz47pRzZ78JnSzlcNEyBPGc9NmGwMtHTHGyZU5rW6wbZXANDL0k91CWQdZ0WAWuZ1kTZqQWzOQ3zHOOvcWRFBtx7CQqqiZNeR1GL2wxzKwOlss+nFVCTl6ZDmBiaUZUKJzupWKNKOA0kA2dG4JEAt0AQQq+sE8RUM1Mpg2euqxXnqlEUCDmZC2c9RxOqW1wMEkoCFeiDPFDZzt1AYjaLr8J5VnAdgjLjwf0EMAA==")
+size_override = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhhdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dewec")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ixxa")
+}],
+"loop": true,
+"name": &"Forward",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn08x")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ee3")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gntrk"]
+radius = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xhfnw")
+[node name="PlayerDirection" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bhhdu")
+animation = &"Forward"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://Sprites/Player.aseprite",
+"source_uid": 841140131532430900
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d092d96a53485290bef7ea57afbe38ee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_xkw7b")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_gntrk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D"]
-offset_right = 40.0
-offset_bottom = 40.0
+zoom = Vector2(5, 5)
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("3_kne1u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
-position = Vector2(100, -1)
-scale = Vector2(2, 2)
-texture = ExtResource("4_e80uo")
-
 [node name="BulletPos" type="Node2D" parent="Weapon"]
-position = Vector2(109, -1)
+position = Vector2(47, 0)
+
+[node name="Book" type="Sprite2D" parent="Weapon"]
+position = Vector2(39, 0)
+rotation = 1.5707964
+texture = ExtResource("4_dewec")
