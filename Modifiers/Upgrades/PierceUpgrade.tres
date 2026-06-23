@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PierceUpgrade" load_steps=3 format=3 uid="uid://cvgfp4i25cduw"]
+
+[ext_resource type="Texture2D" uid="uid://dvvvt8aajj7gc" path="res://Sprites/BulletPierceUpgrade.png" id="1_bomfe"]
+
+[sub_resource type="GDScript" id="GDScript_jmsu8"]
+script/source = "extends Resource
+class_name PierceUpgrade
+
+@export var texture: Texture2D
+@export var description:String
+
+func apply_upgrade(bullet):
+	bullet.can_pierce = true
+"
+
+[resource]
+script = SubResource("GDScript_jmsu8")
+texture = ExtResource("1_bomfe")
+description = "Bullets pierce attacks"

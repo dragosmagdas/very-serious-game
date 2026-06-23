@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://r76p37mrdxwb"
+path="res://.godot/imported/BulletPierceUpgrade.aseprite-eb337efdc075591e476dae0e60b075fc.res"
+
+[deps]
+
+source_file="res://Sprites/BulletPierceUpgrade.aseprite"
+dest_files=["res://.godot/imported/BulletPierceUpgrade.aseprite-eb337efdc075591e476dae0e60b075fc.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseUpgrade" load_steps=2 format=3 uid="uid://dkgdopscq8b4a"]
+
+[sub_resource type="GDScript" id="GDScript_jmsu8"]
+script/source = "extends Resource
+class_name BaseUpgrade
+
+@export var texture: Texture2D
+
+func apply_upgrade(bullet):
+	pass
+"
+
+[resource]
+script = SubResource("GDScript_jmsu8")

@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dru5bvrqyytxv"]
+
+[ext_resource type="FontFile" uid="uid://dca7el07vnupc" path="res://alagard.ttf" id="1_xf8wu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf8wu"]
+bg_color = Color(0.62880427, 0.40312326, 0.30085662, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xf8wu"]
+color = Color(0.9999991, 0.9930044, 0.72001195, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l456"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_xf8wu")
+default_font_size = 128
+Button/styles/hover = SubResource("StyleBoxFlat_xf8wu")
+Button/styles/normal = SubResource("StyleBoxFlat_xf8wu")
+Button/styles/pressed = SubResource("StyleBoxFlat_xf8wu")
+VScrollBar/styles/grabber = SubResource("StyleBoxLine_xf8wu")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_1l456")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxLine_xf8wu")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_xf8wu")

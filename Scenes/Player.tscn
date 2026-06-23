@@ -1,12 +1,19 @@
-[gd_scene load_steps=11 format=4 uid="uid://cel8bbvbbr1oe"]
+[gd_scene load_steps=24 format=4 uid="uid://cel8bbvbbr1oe"]
 
 [ext_resource type="Script" uid="uid://c7ha4bt6g1op5" path="res://Scripts/player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://br7r2338ongvy" path="res://Scripts/camera_2d.gd" id="2_nn08x"]
 [ext_resource type="Script" uid="uid://c2qcps7g0p2qr" path="res://Scripts/weapon.gd" id="3_kne1u"]
+[ext_resource type="AudioStream" uid="uid://kmu6ve5nsohn" path="res://Sounds/DamageSound.wav" id="4_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://jp2k021bok5v" path="res://Sprites/Book.png" id="4_dewec"]
+[ext_resource type="AudioStream" uid="uid://cb6bk666a1j3u" path="res://Sounds/Fire.wav" id="5_5ixxa"]
+[ext_resource type="FontFile" uid="uid://dca7el07vnupc" path="res://alagard.ttf" id="7_52ee3"]
+[ext_resource type="Script" uid="uid://cnlxllstcg15t" path="res://Scripts/game_over.gd" id="7_megsn"]
+[ext_resource type="Theme" uid="uid://dru5bvrqyytxv" path="res://MenuTheme.tres" id="8_bhhdu"]
+[ext_resource type="AudioStream" uid="uid://c7rm3yc60lnos" path="res://Sounds/HeavyFallEdited.wav" id="10_yoq75"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gntrk"]
-_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAIAAAABoAgAAUklGRmACAABXRUJQVlA4TFMCAAAvf8AfEGegJADQhgRUQOLpQ3//zxbEaG0bv/30O0k1i5nNYQ+qoraRpOY9HZHSv2jD+4wUAUGR/6MFANj+9xtOT/tFFX+6mtM/tpbYGIkA3YEkadvbtoG7ytJHyAWc/DPpvS8rdAGNPhe6reQsXTk6gdsB0gtXafAibalTCZT4f2BJXUT0n4HbtnFoDNk9d88wfw/Td66Za6+vAJzLs9eJsxZwzQC9qOwBrXx7mQVgKt9em/TCNos/1oFWpffanAdg8+y1gLPSRi+3XnYPMgjQy6nXA+Cs1wZqAXppI6kYInJK5IzvVW1y7TXnTZS51wOvxrjuTVIggphiRXCf48OM2x0AMTM6tCfw7k+yYgbbKwHruk0Xq7FQ0+uwItb1BGkz7ERXLcqboUW0yRGIyRW7PrlMing/MYye2Gft5+Q2K6Jdv93nfMXo1HWWOctZuGOgQU8800zWcgjLVK2vr3zArcycuBF5bZTxl0aMAGEuDY98L71qmP+xkjgfhnPW2inC12X46Hecg09c01vGUJxyw1Bi/XTOIp2mqhXSjo6OaoaIXUj5oP8pz47pRzZ78JnSzlcNEyBPGc9NmGwMtHTHGyZU5rW6wbZXANDL0k91CWQdZ0WAWuZ1kTZqQWzOQ3zHOOvcWRFBtx7CQqqiZNeR1GL2wxzKwOlss+nFVCTl6ZDmBiaUZUKJzupWKNKOA0kA2dG4JEAt0AQQq+sE8RUM1Mpg2euqxXnqlEUCDmZC2c9RxOqW1wMEkoCFeiDPFDZzt1AYjaLr8J5VnAdgjLjwf0EMAA==")
-size_override = Vector2(128, 128)
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAMAAAAAABAAAUklGRvgDAABXRUJQVlA4TOsDAAAvv8AvEG+gJADQhgRUQOLpQ3//zxZEaQAQjCbpJNUtbnaHQ9SptpGk5j0dkdK/aMP7jBQBQZH/owUAgIetvu2GzdN4kccfXY3TL7acWBrRAMWBJGnb1LiRHNPAYn7D3qPKAUwHCHSYzLALKheYmt8wht04O86UT2AnOQDTjhmWvoy6JfXXf4ehIvrvwI0kR/EszC2xGdIfgj9L9eyNLo99WGFdtgc7b96U0+xzwVY4VVbrQ84Lts+F9jdv4tQqW3j7Jo6ZM0aD5EIrXjQ8twx1k/liKjSSC67Lm8bqtAy1mBUIyYXXJcTlrMEguRzUBut4PrdgAbAOD2bdTXuot5seW+dDSjEXvHV5gZVSNW7ZZmKOwczMMWpRd6WATDXzLQNzoaUS++y+8zdZJcVGcDCXkNNsTrRmfCbQXC7OgERKQYlHldqvczmgvLYn0e61xiGlAhiUC/eMWV23n2h6pFguvDNzy2cfGHFaKyDGtA5RrBS3ILFSPI9a0Zr2dCFtuq5n0iGoDrvA2nyHtBaKW+ijIp4xaixmc7AObGG4YK/uQgPSQI2lX3e3C1jnprWG7wInnjGiAetw6a51x4KPdawIa+C+sktg5y3Ulqem3agDGrCx6R1ZHzi7inZWZK3kwfbMJXunOQXtfNem53FfKy6sZMZy78NDXQxO5u2bjHoUCJW+yuVkpK8qJfy+6mEp+Bex3ryJ47gTQbpCRMUIhhyxrlYBOTIXdkIO9JG57E9ZsUWSfWDT7du3C9ZDyWwSyVYMd+/gQwmMwtNZ94cl5D3Nuw+ez9I9Bx9JJ2Wy229AaVMnh8tKM4AFzsrKjt5vQp8X92eUf71SNS5A10dRT96tkYzVKMq9eoUPKaW4WQRGUY1yw4IjiHryh6yUbltA3MgiLDiCKD/Obr2CABS5ujj6MVHe25Nohwwk2jIJRFSq1kKn0ePue121m/BxxVyAVM2vnasvXo+NBjNjzfXvti0u4D/3Tvq3reXDLzdZq/8YcDcsdHDNt64JIwf7b9ZpRlV8wUVYCF9j77L3FmHkjdJ3310Ywff88eESLASvyfAfuiKiEM8lqkK68Fyi3azQRS7pq/Bc34U7oG8umOvH0L7/vnNf7mrUAwUnGhrpFVxEFCVFRECukaSSQ7lrqwndQutcQ1qv5DNERiG5RoxKLv5pNaC1IQa1Xd8zFS1EjGkdokh/rSE0MkLjsnQhbdrIJdkI1m8Y75BGMBLcw8ZSuUJxobcINVaRVkkj++67QBzBOjLIdTD4mDjC9QurZCIUeWpaGsHGpklWJUfoIcoD7imU6eh2TBq5kP25E+kOtu6JJ/fgv8HnSq2/AyoAAA==")
+size_override = Vector2(192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
 atlas = SubResource("PortableCompressedTexture2D_gntrk")
@@ -14,17 +21,33 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
 atlas = SubResource("PortableCompressedTexture2D_gntrk")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
 atlas = SubResource("PortableCompressedTexture2D_gntrk")
-region = Rect2(64, 64, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
 atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhhdu"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bhhdu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoq75"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksbbd"]
+atlas = SubResource("PortableCompressedTexture2D_gntrk")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glx4g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -39,7 +62,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5ixxa")
 }],
 "loop": true,
-"name": &"Forward",
+"name": &"BackFlash",
 "speed": 10.0
 }, {
 "frames": [{
@@ -47,7 +70,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_nn08x")
 }],
 "loop": true,
-"name": &"Left",
+"name": &"Forward",
 "speed": 10.0
 }, {
 "frames": [{
@@ -55,20 +78,59 @@ animations = [{
 "texture": SubResource("AtlasTexture_52ee3")
 }],
 "loop": true,
+"name": &"ForwardFlash",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhhdu")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_megsn")
+}],
+"loop": true,
+"name": &"LeftFlash",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoq75")
+}],
+"loop": true,
 "name": &"Right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksbbd")
+}],
+"loop": true,
+"name": &"RightFlash",
 "speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gntrk"]
 radius = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dewec"]
+radius = 9.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhhdu"]
+font = ExtResource("7_52ee3")
+font_size = 64
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
 
 [node name="PlayerDirection" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_bhhdu")
-animation = &"Forward"
+sprite_frames = SubResource("SpriteFrames_glx4g")
+animation = &"Back"
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -85,14 +147,11 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Sprites/Player.aseprite",
 "source_uid": 841140131532430900
 }
-metadata/_aseprite_wizard_source_file_hash_ = "d092d96a53485290bef7ea57afbe38ee"
+metadata/_aseprite_wizard_source_file_hash_ = "da087b18fbf4b30c6a40398ccd1d8d3d"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_gntrk")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("3_kne1u")
@@ -104,3 +163,90 @@ position = Vector2(47, 0)
 position = Vector2(39, 0)
 rotation = 1.5707964
 texture = ExtResource("4_dewec")
+
+[node name="FireTimer" type="Timer" parent="Weapon"]
+wait_time = 0.3
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_dewec")
+
+[node name="I-frames" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5ixxa")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5ixxa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+zoom = Vector2(5, 5)
+script = ExtResource("2_nn08x")
+max_offset = Vector2(100, 75)
+
+[node name="GameOver" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_megsn")
+
+[node name="GameOverColor" type="ColorRect" parent="GameOver"]
+process_mode = 2
+z_index = 1
+layout_mode = 0
+offset_left = -586.0
+offset_top = -219.0
+offset_right = 611.0
+offset_bottom = -219.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="GameOver/GameOverColor"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 416.0
+offset_top = 78.0
+offset_right = 783.0
+offset_bottom = 166.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_bhhdu")
+
+[node name="Menu" type="Button" parent="GameOver/GameOverColor"]
+visible = false
+layout_mode = 0
+offset_left = 695.0
+offset_top = 324.0
+offset_right = 900.0
+offset_bottom = 398.0
+theme = ExtResource("8_bhhdu")
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Menu"
+
+[node name="Retry" type="Button" parent="GameOver/GameOverColor"]
+visible = false
+layout_mode = 0
+offset_left = 298.0
+offset_top = 326.0
+offset_right = 487.0
+offset_bottom = 400.0
+theme = ExtResource("8_bhhdu")
+theme_override_font_sizes/font_size = 64
+action_mode = 0
+text = "Retry"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource("10_yoq75")
+volume_db = 4.0
+pitch_scale = 0.4
+
+[connection signal="timeout" from="Weapon/FireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="button_down" from="GameOver/GameOverColor/Menu" to="GameOver" method="_on_menu_button_down"]
+[connection signal="button_down" from="GameOver/GameOverColor/Retry" to="GameOver" method="_on_retry_button_down"]

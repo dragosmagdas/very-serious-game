@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpeedUpgrade" load_steps=3 format=3 uid="uid://pdkydowdlfll"]
+
+[ext_resource type="Texture2D" uid="uid://b8lvu7tlqevhe" path="res://Sprites/BulletSpeedUpgrade.png" id="1_lli1g"]
+
+[sub_resource type="GDScript" id="GDScript_jmsu8"]
+script/source = "extends Resource
+class_name SpeedUpgrade
+
+@export var texture: Texture2D = preload(\"res://Sprites/BulletSpeedUpgrade.png\")
+@export var increase:int = 100
+@export var description:String
+
+func apply_upgrade(bullet):
+	bullet.speed += increase
+"
+
+[resource]
+script = SubResource("GDScript_jmsu8")
+increase = 750
+description = "Bullets travel faster"

@@ -1,12 +1,22 @@
 extends CharacterBody2D
 
-const SPEED:float = 600
-
 @onready var player = Globals.player
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var calculate_timer: Timer = $CalculateTimer
 
+var base_SPEED:int = 400
+var base_hp = 1
+var damage = 1
+@onready var SPEED:int = base_SPEED + Globals.enemy_speed_boost
+@onready var hp:int = base_hp + Globals.enemy_hp_boost:
+	set(value):
+		print("Value:", value)
+		print("HP:", hp)
+		hp = value
+
 func _ready() -> void:
+	Globals.connect("slot_machine_finished", check_challenges)
+	Globals.connect("enemy_frenzy", check_challenges)
 	calculate_timer.timeout.connect(_on_calculate_timeout)
 	navigation_agent_2d.velocity_computed.connect(_on_velocity_computed)
 	
@@ -41,3 +51,8 @@ func _physics_process(delta: float) -> void:
 func _on_velocity_computed(safe_velocity:Vector2):
 	velocity = safe_velocity
 	move_and_slide()
+
+func check_challenges():
+	await get_tree().create_timer(0.1).timeout
+	hp = base_hp + Globals.enemy_hp_boost
+	SPEED = base_SPEED + Globals.enemy_speed_boost

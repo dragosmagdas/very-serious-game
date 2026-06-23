@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseChallenge" load_steps=2 format=3 uid="uid://pmms8jthuykl"]
+
+[sub_resource type="GDScript" id="GDScript_jmsu8"]
+script/source = "extends Resource
+class_name BaseChallenge
+
+@export var texture: Texture2D
+
+func apply_challenge(bullet):
+	pass
+"
+
+[resource]
+script = SubResource("GDScript_jmsu8")

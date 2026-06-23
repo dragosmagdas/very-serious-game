@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2g8fphlndspd"]
+
+[ext_resource type="Script" uid="uid://fwibsvwdnyjy" path="res://Scripts/challenge_button.gd" id="1_ax861"]
+
+[node name="ChallengeButton" type="TextureButton"]
+action_mode = 0
+script = ExtResource("1_ax861")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

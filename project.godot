@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VerySeriousGame"
-run/main_scene="uid://611ecqivecj8"
+run/main_scene="uid://cam1pir0i7ons"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
@@ -30,7 +30,10 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [global_group]
 
-Enemies=""
+EvilButtons=""
+PerkButtons=""
+Hitboxes=""
+Hurtboxes=""
 
 [input]
 
